@@ -1,0 +1,11 @@
+{
+    "name": "hexlet/code",
+    "description": "Project: Mind Games",
+    "authors": [
+        {
+            "name": "demettriss",
+            "email": "dmitry.dubrovin@fv.dev"
+        }
+    ],
+    "require": {}
+}
