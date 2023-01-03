@@ -21,7 +21,6 @@ function run(): void
         line("Question: {$number}");
         $answer = prompt('Your answer');
         if ($answer != $correctAnswer) {
-            $right = 0;
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
             line("Let's try again, {$userName}!");
             break;

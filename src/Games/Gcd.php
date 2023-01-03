@@ -24,9 +24,9 @@ function run(): void
         $answer = prompt('Your answer');
         $correctAnswer = checkAnswer($first, $second);
         if ($answer != $correctAnswer) {
-            $right = 0;
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
             line("Let's try again, {$userName}!");
+            break;
         } else {
             $right++;
             line("Correct!");
