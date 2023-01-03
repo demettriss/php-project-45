@@ -15,7 +15,8 @@
     "autoload": {
         "files": [
             "src/Cli.php",
-            "src/Games/IsEven.php"
+            "src/Games/IsEven.php",
+            "src/Games/Calc.php"
         ]
     },
     "require": {
