@@ -3,7 +3,7 @@
 namespace BrainGames\Games\Calc;
 
 use function cli\line;
-use function cli\prompt;
+use function BrainGames\Cli\run as cliRun;
 
 const OPERANDS = ["+", "-", "*"];
 
@@ -22,16 +22,10 @@ function run(): void
         $operand = OPERANDS[array_rand(OPERANDS)];
         $second = rand(1, 50);
         $question = "{$first} {$operand} {$second}";
-        line("Question: {$question}");
-        $answer = prompt('Your answer');
-        $correctAnswer = checkAnswer($question);
-        if ($answer != $correctAnswer) {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-            line("Let's try again, {$userName}!");
-            break;
-        } else {
+        if (cliRun($question, checkAnswer($question))) {
             $right++;
-            line("Correct!");
+        } else {
+            break;
         }
     }
 }

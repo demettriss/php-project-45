@@ -3,7 +3,7 @@
 namespace BrainGames\Games\Gcd;
 
 use function cli\line;
-use function cli\prompt;
+use function BrainGames\Cli\run as cliRun;
 
 const OPERANDS = ["+", "-", "*"];
 
@@ -20,16 +20,10 @@ function run(): void
         }
         $first = rand(1, 100);
         $second = rand(1, 100);
-        line("Question: {$first} {$second}");
-        $answer = prompt('Your answer');
-        $correctAnswer = checkAnswer($first, $second);
-        if ($answer != $correctAnswer) {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-            line("Let's try again, {$userName}!");
-            break;
-        } else {
+        if (cliRun("{$first} {$second}", checkAnswer($first, $second))) {
             $right++;
-            line("Correct!");
+        } else {
+            break;
         }
     }
 }

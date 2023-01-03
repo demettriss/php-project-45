@@ -3,7 +3,7 @@
 namespace BrainGames\Games\Prime;
 
 use function cli\line;
-use function cli\prompt;
+use function BrainGames\Cli\run as cliRun;
 
 function run(): void
 {
@@ -17,16 +17,10 @@ function run(): void
             break;
         }
         $number = rand(1, 100);
-        $correctAnswer = checkAnswer($number);
-        line("Question: {$number}");
-        $answer = prompt('Your answer');
-        if ($answer != $correctAnswer) {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-            line("Let's try again, {$userName}!");
-            break;
-        } else {
+        if (cliRun($number, checkAnswer($number))) {
             $right++;
-            line("Correct!");
+        } else {
+            break;
         }
     }
 }

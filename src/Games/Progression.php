@@ -3,7 +3,7 @@
 namespace BrainGames\Games\Progression;
 
 use function cli\line;
-use function cli\prompt;
+use function BrainGames\Cli\run as cliRun;
 
 function run(): void
 {
@@ -20,19 +20,12 @@ function run(): void
         $step = rand(1, 5);
         $index = rand(0, 9);
         $progression = getProgression($first, $step, 10);
-        $correctAnswer = $progression[$index];
         $progression[$index] = '...';
         $question = implode(' ', $progression);
-
-        line("Question: {$question}");
-        $answer = prompt('Your answer');
-        if ($answer != $correctAnswer) {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
-            line("Let's try again, {$userName}!");
-            break;
-        } else {
+        if (cliRun($question, $progression[$index])) {
             $right++;
-            line("Correct!");
+        } else {
+            break;
         }
     }
 }
