@@ -17,7 +17,8 @@
             "src/Cli.php",
             "src/Games/IsEven.php",
             "src/Games/Calc.php",
-            "src/Games/Gcd.php"
+            "src/Games/Gcd.php",
+            "src/Games/Progression.php"
         ]
     },
     "require": {
