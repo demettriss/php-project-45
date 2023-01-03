@@ -81,3 +81,16 @@ Your answer: 59
 Correct!
 Congratulations, Sam!
 ~~~
+
+### Игра "Простое ли число?"
+~~~
+./bin/brain-prime
+
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Answer "yes" if given number is prime. Otherwise answer "no".
+Question: 7
+Your answer: yes
+Correct!
+~~~
