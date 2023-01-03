@@ -5,21 +5,23 @@ namespace BrainGames\Games\Prime;
 use function cli\line;
 use function cli\prompt;
 
+const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 function run(): void
 {
     global $userName;
 
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
+    line(DESCRIPTION);
     $right = 0;
     while (true) {
-        if ($right == 3) {
+        if ($right >= 3) {
             line("Congratulations, {$userName}!");
             break;
         }
         $number = rand(1, 100);
+        $correctAnswer = checkAnswer($number);
         line("Question: {$number}");
         $answer = prompt('Your answer');
-        $correctAnswer = checkAnswer($number);
         if ($answer != $correctAnswer) {
             $right = 0;
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
