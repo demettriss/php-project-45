@@ -5,13 +5,11 @@ namespace BrainGames\Games\Prime;
 use function cli\line;
 use function cli\prompt;
 
-const DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
 function run(): void
 {
     global $userName;
 
-    line(DESCRIPTION);
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
     $right = 0;
     while (true) {
         if ($right >= 3) {
